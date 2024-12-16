@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD's Report Card Generator</title>
+     <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .jumbotroncontainer {
+            margin: 12px;
+            padding: 10px;
+        }
+        .container1 {
+background-image:url('360_F_450795423_kvvpmWbAXzPkdZ2wVb1P7Ha9VEmctzeH (1).jpg');
+background-repeat:no-repeat;
+height:100%;
+background-position: center;
+background-size: cover;
+}
+
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+
+        </style>
+</head>
+<body>
+  
+    <!--Home Page-->
+    <div id="ReportCardHomePage">
+        <div class="container mt-5">
+            <div class="row p-4" style="justify-content: center; background-color: rgb(239, 247, 139);">
+              <div class="col-sm-12">
+                <h1 style="text-align: center; color: rgb(4, 135, 139); text-shadow: 3px 2px 5px coral; font-size: 60px;">Welcome</h1>
+                
+              </div>
+            </div>
+          </div>
+        <!--Container 2-->
+        <div class="container container1  mt-2" >
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <form style="padding:20px; margin:40px; ">
+                <h1>Enter Your Information</h1> <br/>
+                Name: <input type="text" placeholder="Name" id="Name" class="form-control"> <br/>
+                Grade Level: <input type="text" placeholder="Grade Level" id="Grade_Level" class="form-control"> <br/>
+                Roll Number: <input type="text" placeholder="Roll Number" id="Exam_ID" class="form-control"> <br/>
+                
+              </form>
+                  <center><button class="button-85" role="button" id="submit">Submit</button></center>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!--Mark Entry-->
+    <div id="ReportCardMarkEntry">
+        <div class="container mt-5">
+            <div class="row p-4" style="justify-content: center; background-color: rgb(239, 247, 139);">
+              <div class="col-sm-12">
+                <h1 style="text-align: center; color: rgb(4, 135, 139); text-shadow: 3px 2px 5px coral; font-size: 60px;">Let Us Calculate</h1>
+                
+              </div>
+            </div>
+          </div>
+        <!--Container 2-->
+        <div class="container container1  mt-2" >
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <form style="padding:20px; margin:40px; ">
+                <h1 style="text-align: center;">Enter Your Marks</h1> <br/>
+                Math: <input type="text" placeholder="Math" id="Math" class="form-control"> <br/>
+                English: <input type="text" placeholder="English" id="English" class="form-control"> <br/>
+                Science: <input type="text" placeholder="Science" id="Science" class="form-control"> <br/>
+               
+              </form>
+              <center>
+                <button class="button-85" role="button" id="Calc">Calculate</button></center>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!--Results-->
+    <div id="Results_For_The_Calculator">
+        <div class="container mt-5">
+            <div class="row p-4" style="justify-content: center; background-color: rgb(239, 247, 139);">
+              <div class="col-sm-12">
+                <h1 style="text-align: center; color: rgb(4, 135, 139); text-shadow: 3px 2px 5px coral; font-size: 60px;">Congrats On Your Scores!</h1>    
+              </div>
+            </div>
+          </div>
+        <!--Container 2-->
+        <div class="container container1  mt-2" >
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <form style="padding:20px; margin:30px; margin-top: 50px;">
+                <h1 style="text-align: center;">Your Score Is...</h1>
+                <center>
+                    <input type="text" id="Total" class="form-control" style="border:none; font-size:50px; text-align:center; color:cadetblue; ">
+                    <h1>Your Grade Is...</h1>
+                    <input type="text" id="Results" class="form-control" style="border:none; font-size:50px; text-align:center; color:cadetblue; "><br/><br/>
+                    <textarea style="width:400px; height:130px; padding-left:10px; font-size: 22px; color:lightcoral; font-family: Monaco;" placeholder="Any Comments/Questions?" id="Comment"></textarea><br/><br/>
+                    <img src="trophy.webp" style="height: 150px; width: 70px;">
+                </center>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!--Fail Page-->
+    <div id="Ufailed">
+        <div class="container mt-5">
+            <div class="row p-4" style="justify-content: center; background-color: rgb(239, 247, 139);">
+              <div class="col-sm-12">
+                <h1 style="text-align: center; color: rgb(4, 135, 139); text-shadow: 3px 2px 5px coral; font-size: 60px;">Study Hard!</h1>
+                
+              </div>
+            </div>
+          </div>
+        <!--Container 2-->
+        <div class="container container1  mt-2" >
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <form style="padding:20px; margin:40px; ">
+                <h1 style="text-align: center;">Your Score Is...</h1> <br/>
+                <center>
+                    <input type="text" id="Failtotal" class="form-control" style="border:none; font-size:50px; text-align:center; color:cadetblue; ">
+                    <h1>Your Grade Is...</h1>
+                    <input type="text" id="gradefail" class="form-control" style="border:none; font-size:50px; text-align:center; color:cadetblue; "><br/><br/>
+                    <textarea style="width:400px; height:130px; padding-left:10px; font-size: 22px; color:lightcoral; font-family: Monaco;" id="questions"></textarea><br/><br/>
+                    
+                   
+                </center>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <script>
+var Name_g, Grade_Level_g, Exam_ID_g, Math_g, English_g, Science_g,Total_g;
+
+
+      $(document).ready(function() {
+        $("#ReportCardHomePage").show();
+        $("#ReportCardMarkEntry").hide();
+        $("#Results_For_The_Calculator").hide();
+        $("#Ufailed").hide();
+
+
+$("#submit").click(function(e){
+
+       if ($("#Name").val() === "" || $("#Grade_Level").val() === "" || $("#Exam_ID").val() === "") 
+        {
+            alert("Please fill in all the mandatory fields.");
+             return;               }
+        
+
+         Name_g=$('#Name').val();
+         console.log(Name_g);
+         Grade_Level_g=$('#Grade_Level').val();
+         Exam_ID_g=$('#Exam_ID').val();
+
+               if(!/^[A-Z a-z]+$/.test(Name_g))
+                 {
+                    alert("Enter letters only in the Name Textbox");
+                    return;
+                }
+
+                if(!/^[0-9]+$/.test(Grade_Level_g))
+                 {
+                    alert("Enter numbers only in the Grade Level Textbox");
+                    return;
+                }
+
+
+                if(Grade_Level_g>12)
+          {
+                alert("This is not a valid grade level");
+                                      return;        
+              }                          
+
+                $("#ReportCardHomePage").hide();
+        $("#ReportCardMarkEntry").show();
+        $("#Results_For_The_Calculator").hide();
+        $("#Ufailed").hide();
+
+   });// End of Submit function
+  
+   $("#Calc").click(function(e){
+
+   
+  <!--Mandatory Field Check-->
+    if ($("#Math").val() === "" || $("#Science").val() === "" || $("#English").val() === "") 
+        {
+            alert("Please fill in all the mandatory fields.");
+             return; 
+                     }
+
+         Math_g=parseFloat($('#Math').val());
+         Science_g=parseFloat($('#Science').val());
+         English_g=parseFloat($('#English').val());
+if(Math_g > 100 || Science_g > 100 || English_g > 100) {
+
+alert("Your marks must be under or equal to 100");
+return;
+
+}
+
+
+
+      if(!isNaN(Math_g) && !isNaN(English_g) && !isNaN(Science_g)){
+Total_g= Math_g + English_g + Science_g;
+$('#Total').val(Total_g);
+      }
+      else{
+alert("Please enter a valid numeric score")
+
+      }
+
+      
+ if(Total_g>=250){
+$('#Results').val("A");
+$('#Comment').val("Good work" + " " + Name_g + "! Keep up the good work!");
+
+$("#ReportCardHomePage").hide();
+        $("#ReportCardMarkEntry").hide();
+        $("#Results_For_The_Calculator").show();
+        $("#Ufailed").hide();
+      }
+else if(Total_g >= 200){
+$('#Results').val("B");
+$('#Comment').val("Good work" + " " + Name_g + "! Not bad, a B is still good!");
+
+$("#ReportCardHomePage").hide();
+        $("#ReportCardMarkEntry").hide();
+        $("#Results_For_The_Calculator").show();
+        $("#Ufailed").hide();
+}
+else if(Total_g >= 150){
+$('#Results').val("C");
+$('#Comment').val("Good work" + " " + Name_g + "! You'll do better next time!");
+
+       $("#ReportCardHomePage").hide();
+        $("#ReportCardMarkEntry").hide();
+        $("#Results_For_The_Calculator").show();
+        $("#Ufailed").hide();
+
+      }
+
+else if(Total_g < 150)  {
+  $('#Failtotal').val(Total_g);
+$('#gradefail').val("F");
+$('#questions').val("To do better next time you have to study and work hard " + " " + Name_g + ". " + "Focus on your studies more!")
+
+$("#ReportCardHomePage").hide();
+        $("#ReportCardMarkEntry").hide();
+        $("#Results_For_The_Calculator").hide();
+        $("#Ufailed").show();
+
+}
+    
+   });
+
+
+
+
+  }); //document.ready function
+ 
+    </script>
+</body>
+</html>
